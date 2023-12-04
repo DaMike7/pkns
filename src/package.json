@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "npx tailwindcss -i ./static/src/input.css -o ./static/src/styles.css --watch",
+    "build": "npm run build"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2",
+    "vercel": "^32.5.6"
+  }
+}

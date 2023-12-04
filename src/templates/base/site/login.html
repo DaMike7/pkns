@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'src/styles.css' %}">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <style>
+        ion-icon{
+            color:rgb(240, 250, 250);
+        }
+    </style>
+
+</head>
+<body class="bg-gray-800" style="background: rgba(8, 180, 129, 0.979)">
+    <div class="bg-gray-800 py-4 px-4 lg:justify-center" style="margin-top: 6.5cm;margin-left: 1cm;max-width: 10cm;border-radius: 10px;">
+        <div class="">
+            <h1 class="mt-4 text-center text-xl font-bold" style="color: rgb(246, 250, 250);">LOGIN</h1>
+            <hr class="mx-4">
+            <hr  class="mx-4" style="margin-bottom: 1cm;">
+            <form method="POST" action="">
+                {% csrf_token%}
+                <ion-icon name="person-circle"size="" style="margin-left: 1cm;" class="text-2xl"></ion-icon><input type="text" name="username" placeholder="Username" class="my-4 px-4" style="padding-top: 10px;padding-bottom: 3px;">
+                <br>
+
+                <ion-icon name="lock-closed"size="small" style="margin-left: 1cm;" ></ion-icon><input type="password" name="password" placeholder="Password" class="my-2 px-4" style="padding-top: 5px;padding-bottom: 5px;">
+
+                <button type="submit" value="login" class="text-lg font-bold" style="background-color: aqua;margin-left: 1cm;margin-top: 0.5cm;padding-left: 15px;padding-right: 15px;padding-top: 5px;padding-bottom: 5px;border-radius: 8px;">Log in</button>
+                {% for message in messages %}
+                    <h1 class="py-4 mx-4 text-gray-100">{{ message }}</h1>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</body>
