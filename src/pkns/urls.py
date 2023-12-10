@@ -23,7 +23,6 @@ from base.views import index
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
-    path('api/',include('api.urls')),
     path('', index,name='index'),
     path('kids/',include('kids.urls')),
     path('terms/',include('kids.term_urls')),
