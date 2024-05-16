@@ -14,19 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf import settings
-from django.conf.urls.static import static
+
 from django.contrib import admin
 from django.urls import path,include
-from base.views import index
+from api.views import *
+from rest_framework_simplejwt.views import (
+    TokenRefreshView,
+) 
 
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
-    path('', index,name='index'),
-    path('kids/',include('kids.urls')),
-    path('terms/',include('kids.term_urls')),
-    path('payments/',include('kids.payment_urls')),
+    path('auth/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/',include('api.urls')),
 ]
-
-urlpatterns += static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
