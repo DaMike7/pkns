@@ -13,6 +13,7 @@ class Term(models.Model):
     def __str__(self):
         return f"{self.name} {self.year}"
 
+#UPDATED 
 class Kid(models.Model):
     class ClassChoices(models.TextChoices):
         DAYCARE  = "Daycare"
